@@ -217,3 +217,24 @@ function initDropdowns() {
         }
     });
 }
+
+// Theme toggle functionality
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = sessionStorage.getItem('darkMode') === 'true';
+
+    if (currentTheme) {
+        body.classList.add('dark');
+    }
+
+    // Toggle theme on button click
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const isDark = body.classList.toggle('dark');
+            sessionStorage.setItem('darkMode', isDark);
+        });
+    }
+}
